@@ -40,10 +40,10 @@ router.get("/mens/:id", async (req, res)=>{
 
 router.patch("/mens/:id", async (req, res)=>{
     try{
-        const getMen = await MensRanking.findByIdAndUpdate(req.params.id, req.body, {
+        const updateMen = await MensRanking.findByIdAndUpdate(req.params.id, req.body, {
             new:true
         });
-        res.status(201).send(getMen);
+        res.status(201).send(updateMen);
     }catch(error){
         res.status(500).send(error);
         console.log(error);
@@ -53,8 +53,8 @@ router.patch("/mens/:id", async (req, res)=>{
 
 router.delete("/mens/:id", async (req, res)=>{
     try{
-        const getMen = await MensRanking.findByIdAndDelete(req.params.id);
-        res.status(200).send(getMen);
+        const deleteMen = await MensRanking.findByIdAndDelete(req.params.id);
+        res.status(200).send(deleteMen);
     }catch(error){
         res.status(500).send(error);
         console.log(error);
